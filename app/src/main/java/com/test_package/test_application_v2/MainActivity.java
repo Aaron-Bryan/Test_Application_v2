@@ -164,7 +164,9 @@ public class MainActivity extends AppCompatActivity {
                 output_email_snackbar + "\n" +
                 output_country_snackbar + "\n";
 
-        Snackbar.make(const_layout, snackbar_text, Snackbar.LENGTH_INDEFINITE)
+        Log.d(TAG, "Snackbar Text: " + snackbar_text);
+
+        Snackbar.make(const_layout, "Test Text", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Dismiss", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
