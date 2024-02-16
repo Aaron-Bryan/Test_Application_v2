@@ -17,6 +17,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.jar.Attributes;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button image_select_button_id, register_button_id;
     private CheckBox agreement_checkbox_id;
     private RadioGroup gender_radio_group_id;
+    private RadioButton gender_radiobutton_male, gender_radiobutton_female;
     private Spinner country_spinner_id;
     private ConstraintLayout const_layout;
 
@@ -127,6 +130,12 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
 
+        if (!user_password_id.getText().toString().equals(user_confirm_password_id.getText().toString())) {
+            confirm_password_warning_id.setVisibility(View.VISIBLE);
+            confirm_password_warning_id.setText("Password does not match");
+            return false;
+        }
+
         return true;
 
     }
@@ -140,11 +149,29 @@ public class MainActivity extends AppCompatActivity {
         password_warning_id.setVisibility(View.GONE);
         confirm_password_warning_id.setVisibility(View.GONE);
 
-        Snackbar.make(const_layout, "Test Text", Snackbar.LENGTH_INDEFINITE)
+        //Take in the inputs of the user
+        String output_name = user_name_text_id.getText().toString();
+        String output_email = user_email_text_id.getText().toString();
+        String output_country = country_spinner_id.getSelectedItem().toString();
+
+
+
+        String output_name_snackbar = "Name " + output_name;
+        String output_email_snackbar = "Email " + output_email;
+        String output_country_snackbar = "Country " + output_country;
+
+        String snackbar_text = output_name_snackbar + "\n" +
+                output_email_snackbar + "\n" +
+                output_country_snackbar + "\n";
+
+        Snackbar.make(const_layout, snackbar_text, Snackbar.LENGTH_INDEFINITE)
                 .setAction("Dismiss", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        user_name_text_id.setText("");
+                        user_email_text_id.setText("");
+                        user_password_id.setText("");
+                        user_confirm_password_id.setText("");
                     }
                 }).show();
 
