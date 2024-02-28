@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private Button image_select_button_id, register_button_id;
     private CheckBox agreement_checkbox_id;
     private RadioGroup gender_radio_group_id;
-    private RadioButton gender_radiobutton_male, gender_radiobutton_female;
     private Spinner country_spinner_id;
     private ConstraintLayout const_layout;
 
@@ -49,13 +48,20 @@ public class MainActivity extends AppCompatActivity {
         register_button_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "User data saved.", Toast.LENGTH_SHORT).show();
-                register();
+                if (agreement_checkbox_id.isChecked()){
+                    Toast.makeText(MainActivity.this, "User data saved.", Toast.LENGTH_SHORT).show();
+                    register();
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Error.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
     private void initialize_views() {
+
+
 
         Log.d(TAG, "Initializing Views");
 
