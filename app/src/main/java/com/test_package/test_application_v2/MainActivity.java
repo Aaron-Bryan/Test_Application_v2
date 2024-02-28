@@ -59,13 +59,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Function for Initializing UI Elements
     private void initialize_views() {
-
-
 
         Log.d(TAG, "Initializing Views");
 
-        //Intialize the UI Elements
         //Edit Texts
         user_name_text_id = findViewById(R.id.user_name_text_id);
         user_email_text_id = findViewById(R.id.user_email_text_id);
@@ -96,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Function for registration
     private void register() {
 
         Log.d(TAG, "Processing registration attempt.");
@@ -111,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Function to check the data in the respective fields
     private boolean check_data() {
 
         Log.d(TAG, "Checking data..");
@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Function for displaying the snack bar (Yes I know it's useless but I wanted to try it)
     private void display_snackbar() {
 
         Log.d(TAG, "Initializaing Snackbar");
